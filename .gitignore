@@ -1,0 +1,21 @@
+# Byte-compiled
+__pycache__/
+*.pyc
+app.log
+
+# Unit test / coverage reports
+.coverage
+htmlcov
+
+# Environments
+venv/
+env/
+
+# API keys
+keys/*
+# Application logs
+*.log
+
+# Idea stuff
+.idea/
+.DS_STORE

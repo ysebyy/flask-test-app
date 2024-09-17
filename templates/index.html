@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v1nT3d CtF202A</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: repeating-linear-gradient(
+                    45deg,
+                    #000 0px,
+                    #000 40px,
+                    #111 40px,
+                    #111 80px
+            );
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            font-size: 8em; /* Increased from 2em to 8em */
+            overflow: hidden;
+        }
+
+        .firework {
+            position: absolute;
+            animation: explode 4s ease-out infinite; /* Increased from 2s to 4s */
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="fireworks" id="fireworks"></div>
+<div class="container">
+    <h1>Celebrate with Big Slow Fireworks!</h1>
+</div>
+<script>
+    const fireworksContainer = document.getElementById('fireworks');
+    const fireworkEmojis = ['🎆', '🎇', '✨'];
+
+    function createFirework() {
+        const firework = document.createElement('div');
+        firework.className = 'firework';
+        firework.style.left = Math.random() * 100 + 'vw';
+        firework.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        firework.textContent = fireworkEmojis[Math.floor(Math.random() * fireworkEmojis.length)];
+        fireworksContainer.appendChild(firework);
+
+        setTimeout(() => {
+            firework.remove();
+        }, 6000);  // Increased from 3000 to 6000
+    }
+
+    setInterval(createFirework, 500);  // Increased from 200 to 500
+</script>
+</body>
+</html>
